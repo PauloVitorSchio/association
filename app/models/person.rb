@@ -8,11 +8,6 @@ class Person < ApplicationRecord
   validates :national_id, uniqueness: true
   validate :cpf_or_cnpj
 
-  # TODO: refactor me
-  #
-  # - improve performance using SQL
-  # - sum payments
-  # - rename to "balance"
   def balance
     payments.sum(:amount) - debts.sum(:amount)
   end

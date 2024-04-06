@@ -2,6 +2,7 @@ class Person < ApplicationRecord
   belongs_to :user, optional: true
 
   has_many :debts, dependent: :destroy
+  has_many :payments, dependent: :destroy
 
   validates :name, :national_id, presence: true
   validates :national_id, uniqueness: true
@@ -12,14 +13,8 @@ class Person < ApplicationRecord
   # - improve performance using SQL
   # - sum payments
   # - rename to "balance"
-  def total_debts
-    total = 0
-
-    debts.each do |debt|
-      total -= debt.amount
-    end
-
-    total
+  def balance
+    payments.sum(:amount) - debts.sum(:amount)
   end
 
   private

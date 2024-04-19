@@ -8,11 +8,10 @@ class Person < ApplicationRecord
   validates :national_id, uniqueness: true
   validate :cpf_or_cnpj
 
-  def balance
-    payments.sum(:amount) - debts.sum(:amount)
+  def update_balance
+    balance = debts.sum(:amount) - payments.sum(:amount)
+    update(balance: balance)
   end
-
-  private
 
   def cpf_or_cnpj
     if !CPF.valid?(national_id) && !CNPJ.valid?(national_id)

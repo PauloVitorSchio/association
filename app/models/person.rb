@@ -9,9 +9,7 @@ class Person < ApplicationRecord
   validate :cpf_or_cnpj
 
   def balance
-    Rails.cache.fetch("#{cache_key}/balance") do
-      payments.sum(:amount) - debts.sum(:amount)
-    end
+    payments.sum(:amount) - debts.sum(:amount)
   end
 
   private

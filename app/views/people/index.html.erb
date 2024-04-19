@@ -26,7 +26,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Nome</th>
       <th>CPF/CNPJ</th>
       <th>Telefone</th>
@@ -40,7 +39,6 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.id %></td>
         <td><%= person.name %></td>
         <td><%= person.national_id %></td>
         <td><%= person.phone_number %></td>

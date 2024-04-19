@@ -3,7 +3,7 @@ class DebtsController < ApplicationController
 
   # GET /debts or /debts.json
   def index
-    @debts = Debt.limit(100).order(created_at: :desc)
+    @debts = Debt.limit(100)
   end
 
   # GET /debts/new

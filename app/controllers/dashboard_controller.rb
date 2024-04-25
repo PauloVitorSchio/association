@@ -2,6 +2,6 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @dashboard = Dashboard.new(current_user)
+    @dashboard = Dashboard.new(current_user).charge
   end
 end

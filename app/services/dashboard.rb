@@ -9,6 +9,7 @@ class Dashboard
 
   def charge
     populate_data
+    self
   end
 
   private
@@ -23,7 +24,6 @@ class Dashboard
     set_my_people
     set_top_person
     set_bottom_person
-    self
   end
 
   def set_active_people_pie_chart

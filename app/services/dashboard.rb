@@ -1,7 +1,7 @@
 class Dashboard
 
-  attr_reader :active_people_pie_chart, :total_debts, :total_payments, :balance, :last_debts, :last_payments,
-  :my_people, :top_person, :bottom_person
+  attr_reader :active_people_pie_chart, :total_debts, :total_payments,
+    :balance, :last_debts, :last_payments, :my_people, :top_person, :bottom_person
 
   def initialize(current_user)
     @current_user = current_user
@@ -24,6 +24,8 @@ class Dashboard
     set_my_people
     set_top_person
     set_bottom_person
+
+    nil
   end
 
   def set_active_people_pie_chart

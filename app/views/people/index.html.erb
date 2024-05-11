@@ -1,9 +1,4 @@
-<%# TODO: refactor DRY %>
-<% if notice.present? %>
-  <div class="alert alert-success">
-    <%= notice %>
-  </div>
-<% end %>
+
 
 <h1>Associados</h1>
 
@@ -45,16 +40,9 @@
         <td><%=l person.created_at, format: :short %></td>
         <td><%= person.user.email %></td>
         <td class="text-center align-middle">
-          <%# TODO: refactor: use a helper method %>
-          <% if person.active %>
-            <span class="text-success">
-              <i class="bi bi-check-circle"></i>
-            </span>
-          <% else %>
-            <span class="text-danger">
-              <i class="bi bi-x-circle"></i>
-            </span>
-          <% end %>
+          <span class="text-<%= active_class_for_person(person) %>">
+            <i class="bi bi-<%= icon_for_person(person) %>"></i>
+          </span>
         </td>
         <td class="text-end align-middle">
           <%= person.balance %>
